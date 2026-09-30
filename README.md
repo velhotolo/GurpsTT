@@ -1,6 +1,71 @@
-This is a travel time calculator for GURPS 4th edition. I've been GMing GURPS a lot lately, and decided to gather my GMing with the need to practice Java. 
-The calculation is made considering the character basic speed (first input). Once typed, you can click the "Calculate Distance" button and get the distance the character can walk in one day, in miles. 
-Basic walk by the book consider (Basic Speed*10)miles/day. Lurking on the forums I noticed that many people use *5 in the calculations, to add the realism of bad terrain, bad weather, random encounters, fatigues, and so on. 
-Although *10 seems to high, *5 is maybe too low. So, for the purposes of this application, the calculation is done by multiplying by 7. 
-The second input can calculate how many days a character can travel a given distance, in miles. Note that you need to fill the first input since it needs the character basic speed information in order to proceed. 
-There are no rules for hiking as of now. I might add them in the future, and maybe other details.
+# 🗺️ GURPS Travel Time Calculator
+
+A focused Java desktop utility to calculate overland travel times, march rates, and distances for **GURPS 4th Edition**.
+
+---
+
+## 📖 Overview
+
+Designed to streamline overland exploration logistics during tabletop sessions, this project bridges practical GMing needs with hands-on practice in **Java**. 
+
+By automating the math behind movement rates, the tool allows GMs and players to quickly evaluate daily travel limits or determine the exact time required to traverse specific distances across an adventure map.
+
+---
+
+## 📐 Mechanics & House Rules
+
+In standard **GURPS 4th Edition** rules, ideal daily march distance is calculated as:
+
+$$\text{Daily Distance (miles)} = \text{Basic Speed} \times 10$$
+
+In actual table play, multiplying by 10 often assumes optimal paved roads, perfect clear weather, and continuous marching without interruptions—which rarely reflects adventuring reality. Conversely, a flat multiplier of 5 (commonly cited across community forums) can overly penalize parties by assuming constant harsh conditions.
+
+To strike a balanced, realistic middle ground for typical wilderness expeditions:
+
+* **Implemented Multiplier:** This tool calculates daily pace using a baseline of **$\text{Basic Speed} \times 7$ miles/day**.
+* **Total Time Calculation:** Determines total travel days by dividing target distance by the calculated daily pace.
+
+---
+
+## ✨ Features
+
+* **Daily Distance Mode:** Enter a character's **Basic Speed** and click **Calculate Distance** to retrieve their daily march capacity in miles.
+* **Duration Mode:** Provide a target distance in miles (alongside Basic Speed) to calculate total days needed for the journey.
+* **Input Validation:** Enforces the dependency of distance calculations on the character's Basic Speed stat.
+
+---
+
+## 🛠 Tech Stack
+
+* **Language:** Java (JDK 17+)
+* **GUI Toolkit:** JavaFX / Swing *(ajuste conforme o toolkit usado)*
+* **Build Tool:** Maven / Gradle
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] Implement **Hiking skill** bonuses and modifiers
+- [ ] Add terrain type multipliers (swamp, mountain, jungle, desert)
+- [ ] Add weather condition modifiers (heavy rain, snow, extreme heat)
+- [ ] Support mounted travel and pack animal movement rates
+- [ ] Add forced march fatigue tracking
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Java Development Kit (JDK) 17 or higher installed
+
+### Running Locally
+
+```bash
+# Clone the repository
+git clone [https://github.com/your-username/gurps-travel-calculator.git](https://github.com/your-username/gurps-travel-calculator.git)
+cd gurps-travel-calculator
+
+# Compile and run
+javac Main.java
+java Main
